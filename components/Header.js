@@ -19,7 +19,7 @@ export default function Header() {
     <header className="sticky top-0 z-50 bg-background/80 backdrop-blur-md border-b border-muted">
       <div className="container mx-auto px-6 h-20 flex items-center justify-between">
         <Link href="/" className="text-2xl font-bold tracking-tighter">
-          sanne<span className="text-accent-teal">.</span>
+          A&J DIGITAL<span className="text-accent-teal">.</span>
         </Link>
 
         {/* Desktop Nav */}

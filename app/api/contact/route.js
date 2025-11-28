@@ -5,7 +5,7 @@ export async function POST(request) {
   try {
     const { name, email, subject, service, message } = await request.json()
 
-    // Server-side validation
+    // Validation
     if (!name || !email || !message) {
       return NextResponse.json({ error: 'Missing required fields' }, { status: 400 })
     }
@@ -13,8 +13,8 @@ export async function POST(request) {
     // Configure transporter
     const transporter = nodemailer.createTransport({
       host: process.env.SMTP_HOST,
-      port: process.env.SMTP_PORT,
-      secure: false, // true for 465, false for other ports
+      port: 465,          // Gmail SSL port
+      secure: true,       // true for 465
       auth: {
         user: process.env.SMTP_USER,
         pass: process.env.SMTP_PASS,
@@ -23,29 +23,23 @@ export async function POST(request) {
 
     // Email content
     const mailOptions = {
-      from: process.env.SMTP_USER,
-      to: 'your-email@example.com', // Where you want to receive leads
-      subject: `New Inquiry: ${subject || 'No Subject'}`,
-      text: `
-        Name: ${name}
-        Email: ${email}
-        Service Interest: ${service}
-        
-        Message:
-        ${message}
+      from: `"Website Contact Form" <${process.env.SMTP_USER}>`,
+      to: process.env.CONTACT_TO,
+      subject: `New Message: ${subject || 'No Subject'}`,
+      html: `
+        <p><strong>Name:</strong> ${name}</p>
+        <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Service:</strong> ${service}</p>
+        <p><strong>Message:</strong><br/>${message}</p>
       `,
     }
 
     // Send mail
-    // await transporter.sendMail(mailOptions) // Uncomment when Env vars are set
-
-    // Simulate delay for UX
-    await new Promise(resolve => setTimeout(resolve, 1000))
+    await transporter.sendMail(mailOptions)
 
     return NextResponse.json({ message: 'Email sent successfully' }, { status: 200 })
-
   } catch (error) {
     console.error('Email error:', error)
-    return NextResponse.json({ error: 'Failed to send email' }, { status: 500 })
+    return NextResponse.json({ error: 'Failed to send email', details: error.message }, { status: 500 })
   }
 }

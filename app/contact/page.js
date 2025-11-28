@@ -4,33 +4,38 @@ import { useState } from 'react'
 
 export default function Contact() {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    service: 'Web Development',
-    message: ''
+    name: "",
+    email: "",
+    subject: "",
+    service: "Web Development",
+    message: "",
   })
-  const [status, setStatus] = useState('idle') // idle, loading, success, error
+
+  const [status, setStatus] = useState("idle") // idle | loading | success | error
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    setStatus('loading')
+    setStatus("loading")
 
     try {
-      const res = await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData)
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
       })
 
-      if (res.ok) {
-        setStatus('success')
-        setFormData({ name: '', email: '', subject: '', service: 'Web Development', message: '' })
-      } else {
-        setStatus('error')
-      }
-    } catch (error) {
-      setStatus('error')
+      if (!res.ok) throw new Error("Failed to send")
+
+      setStatus("success")
+      setFormData({
+        name: "",
+        email: "",
+        subject: "",
+        service: "Web Development",
+        message: "",
+      })
+    } catch (err) {
+      setStatus("error")
     }
   }
 
@@ -46,8 +51,8 @@ export default function Contact() {
       </div>
 
       <div className="bg-surface p-8 md:p-12 rounded-3xl border border-muted shadow-lg">
-        {status === 'success' ? (
-          <motion.div 
+        {status === "success" ? (
+          <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             className="text-center py-12"
@@ -55,14 +60,20 @@ export default function Contact() {
             <div className="w-16 h-16 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
               ✓
             </div>
+
             <h3 className="text-2xl font-bold mb-2">Message Sent!</h3>
-            <p className="text-secondary">I'll get back to you within 24-48 hours.</p>
-            <button onClick={() => setStatus('idle')} className="mt-6 text-accent-teal font-medium hover:underline">
+            <p className="text-secondary">I'll get back to you within 24–48 hours.</p>
+
+            <button
+              onClick={() => setStatus("idle")}
+              className="mt-6 text-accent-teal font-medium hover:underline"
+            >
               Send another message
             </button>
           </motion.div>
         ) : (
           <form onSubmit={handleSubmit} className="space-y-6">
+            {/* NAME + EMAIL */}
             <div className="grid md:grid-cols-2 gap-6">
               <div>
                 <label className="block text-sm font-bold mb-2 text-primary" htmlFor="name">Name</label>
@@ -73,10 +84,11 @@ export default function Contact() {
                   name="name"
                   value={formData.name}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 rounded-lg bg-background border border-muted focus:border-accent-violet focus:ring-1 focus:ring-accent-violet outline-none transition-all"
                   placeholder="Jane Doe"
+                  className="w-full px-4 py-3 rounded-lg bg-background border border-muted focus:border-accent-violet focus:ring-1 focus:ring-accent-violet outline-none transition-all"
                 />
               </div>
+
               <div>
                 <label className="block text-sm font-bold mb-2 text-primary" htmlFor="email">Email</label>
                 <input
@@ -86,17 +98,18 @@ export default function Contact() {
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 rounded-lg bg-background border border-muted focus:border-accent-violet focus:ring-1 focus:ring-accent-violet outline-none transition-all"
                   placeholder="jane@example.com"
+                  className="w-full px-4 py-3 rounded-lg bg-background border border-muted focus:border-accent-violet focus:ring-1 focus:ring-accent-violet outline-none transition-all"
                 />
               </div>
             </div>
 
+            {/* SERVICE SELECT */}
             <div>
               <label className="block text-sm font-bold mb-2 text-primary" htmlFor="service">Interested Service</label>
               <select
-                name="service"
                 id="service"
+                name="service"
                 value={formData.service}
                 onChange={handleChange}
                 className="w-full px-4 py-3 rounded-lg bg-background border border-muted focus:border-accent-violet focus:ring-1 focus:ring-accent-violet outline-none transition-all"
@@ -108,6 +121,7 @@ export default function Contact() {
               </select>
             </div>
 
+            {/* SUBJECT */}
             <div>
               <label className="block text-sm font-bold mb-2 text-primary" htmlFor="subject">Subject</label>
               <input
@@ -117,34 +131,36 @@ export default function Contact() {
                 name="subject"
                 value={formData.subject}
                 onChange={handleChange}
-                className="w-full px-4 py-3 rounded-lg bg-background border border-muted focus:border-accent-violet focus:ring-1 focus:ring-accent-violet outline-none transition-all"
                 placeholder="Project Inquiry"
+                className="w-full px-4 py-3 rounded-lg bg-background border border-muted focus:border-accent-violet focus:ring-1 focus:ring-accent-violet outline-none transition-all"
               />
             </div>
 
+            {/* MESSAGE */}
             <div>
               <label className="block text-sm font-bold mb-2 text-primary" htmlFor="message">Message</label>
               <textarea
                 required
                 id="message"
                 name="message"
+                rows="5"
                 value={formData.message}
                 onChange={handleChange}
-                rows="5"
-                className="w-full px-4 py-3 rounded-lg bg-background border border-muted focus:border-accent-violet focus:ring-1 focus:ring-accent-violet outline-none transition-all"
                 placeholder="Tell me about your project..."
+                className="w-full px-4 py-3 rounded-lg bg-background border border-muted focus:border-accent-violet focus:ring-1 focus:ring-accent-violet outline-none transition-all"
               ></textarea>
             </div>
 
+            {/* BUTTON */}
             <button
               type="submit"
-              disabled={status === 'loading'}
+              disabled={status === "loading"}
               className="w-full bg-primary text-white py-4 rounded-lg font-bold hover:bg-accent-teal hover:text-primary transition-colors disabled:opacity-50"
             >
-              {status === 'loading' ? 'Sending...' : 'Send Message'}
+              {status === "loading" ? "Sending..." : "Send Message"}
             </button>
-            
-            {status === 'error' && (
+
+            {status === "error" && (
               <p className="text-red-500 text-center text-sm">Something went wrong. Please try again.</p>
             )}
           </form>

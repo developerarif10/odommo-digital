@@ -7,7 +7,7 @@ export default function Footer() {
     <footer className="bg-surface border-t border-muted py-12 mt-12">
       <div className="container mx-auto px-6 grid md:grid-cols-4 gap-8">
         <div className="col-span-1 md:col-span-2">
-          <h3 className="text-xl font-bold mb-4">Sanne Wijbenga</h3>
+          <h3 className="text-xl font-bold mb-4">A&J DIGITAL</h3>
           <p className="text-secondary max-w-sm">
             Bridging the gap between design and engineering. Available for freelance projects and agency partnerships.
           </p>
@@ -31,7 +31,7 @@ export default function Footer() {
         </div>
       </div>
       <div className="container mx-auto px-6 mt-12 pt-8 border-t border-muted text-center text-sm text-secondary">
-        &copy; {year} Sanne Wijbenga. All rights reserved.
+        &copy; {year} A&J DIGITAL. All rights reserved.
       </div>
     </footer>
   )

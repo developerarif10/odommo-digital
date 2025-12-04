@@ -1,0 +1,8 @@
+primary dark text- #004737
+primary color text- #56f09f
+paragraph text color - #165747
+
+Dark green - #004737
+Green 1 - #74f3b0
+Green 2- #d4ffe8
+light white color - #fbf8e9

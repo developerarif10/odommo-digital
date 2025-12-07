@@ -1,6 +1,27 @@
 @import "tailwindcss";
 
 :root {
+  /* Light Mode Palette */
+  --background: #ffffff;
+  --foreground: #09090b;
+
+  --primary: #09090b;
+  --secondary: #52525b; /* Zinc 600 */
+  --muted: #f4f4f5; /* Zinc 100 */
+
+  /* Vibrant Accents */
+  --accent-blue: #2563eb; /* Blue 600 */
+  --accent-violet: #7c3aed; /* Violet 600 */
+  --accent-cyan: #0891b2; /* Cyan 600 */
+
+  /* Surface colors */
+  --surface: #ffffff;
+  --surface-hover: #f4f4f5;
+
+  --font-sans: var(--font-inter);
+}
+
+.dark {
   /* Premium Dark Mode Palette */
   --background: #050505; /* Very deep black/gray */
   --foreground: #ffffff;
@@ -17,8 +38,6 @@
   /* Surface colors for cards */
   --surface: #0f0f10;
   --surface-hover: #18181b;
-  
-  --font-sans: var(--font-inter);
 }
 
 @theme inline {

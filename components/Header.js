@@ -1,5 +1,6 @@
 "use client"
-import { Menu, X } from 'lucide-react'
+import { Menu, Moon, Sun, X } from 'lucide-react'
+import { useTheme } from 'next-themes'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
 
@@ -14,6 +15,13 @@ const navLinks = [
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
+  const { theme, setTheme } = useTheme()
+  const [mounted, setMounted] = useState(false)
+
+  // Avoid hydration mismatch
+  useEffect(() => {
+    setMounted(true)
+  }, [])
 
   useEffect(() => {
     const handleScroll = () => {
@@ -23,44 +31,69 @@ export default function Header() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
+  const toggleTheme = () => {
+    setTheme(theme === 'dark' ? 'light' : 'dark')
+  }
+
   return (
     <header 
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? 'bg-background/80 backdrop-blur-md border-b border-white/10 py-4' : 'bg-transparent py-6'
+      className={`fixed z-50 transition-all duration-300 left-1/2 -translate-x-1/2 ${
+        scrolled 
+          ? 'w-[90%] top-4 rounded-2xl bg-background/60 backdrop-blur-xl border border-white/10 shadow-lg py-3' 
+          : 'w-full top-0 bg-background py-5 border-b border-transparent'
       }`}
     >
       <div className="container mx-auto px-6 flex items-center justify-between">
-        <Link href="/" className="text-2xl font-bold tracking-tighter flex items-center gap-2 z-50">
-          <span className="font-bold text-xl tracking-widest uppercase">B. Logo</span>
+        <Link href="/" className="text-2xl font-bold tracking-tighter flex items-center gap-2 z-50 group">
+          <span className="font-bold text-xl tracking-widest uppercase text-foreground group-hover:opacity-80 transition-opacity">
+            Notus
+          </span>
         </Link>
 
         {/* Desktop Nav */}
-        <nav className="hidden md:flex items-center gap-1 bg-white/5 backdrop-blur-sm px-2 py-1.5 rounded-full border border-white/10">
+        <nav className="hidden md:flex items-center gap-6">
           {navLinks.map((link) => (
             <Link 
               key={link.name} 
               href={link.href}
-              className="text-sm font-medium text-secondary hover:text-white px-4 py-2 rounded-full hover:bg-white/10 transition-all"
+              className="text-sm font-medium text-secondary hover:text-foreground transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-foreground after:transition-all hover:after:w-full pb-1"
             >
               {link.name}
             </Link>
           ))}
         </nav>
 
-        <div className="hidden md:block">
-          <Link href="/contact" className="bg-white text-black px-6 py-2.5 rounded-full text-sm font-bold hover:bg-gray-200 transition-colors">
-            Book a Call
+        <div className="hidden md:flex items-center gap-4">
+          <button
+            onClick={toggleTheme}
+            className="p-2 rounded-full text-foreground hover:bg-secondary/20 transition-colors"
+            aria-label="Toggle theme"
+          >
+            {mounted && theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
+          </button>
+          
+          <Link href="/contact" className="bg-foreground text-background px-6 py-2.5 rounded-full text-sm font-bold hover:opacity-90 transition-opacity">
+            Start building
           </Link>
         </div>
 
-        {/* Mobile Toggle */}
-        <button 
-          className="md:hidden z-50 text-white"
-          onClick={() => setIsOpen(!isOpen)}
-          aria-label="Toggle menu"
-        >
-          {isOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
+        {/* Mobile Toggle & Theme */}
+        <div className="flex md:hidden items-center gap-4 z-50">
+          <button
+            onClick={toggleTheme}
+            className="p-2 rounded-full text-foreground"
+          >
+            {mounted && theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
+          </button>
+          
+          <button 
+            className="text-foreground"
+            onClick={() => setIsOpen(!isOpen)}
+            aria-label="Toggle menu"
+          >
+            {isOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile Nav */}
@@ -70,7 +103,7 @@ export default function Header() {
             <Link 
               key={link.name} 
               href={link.href}
-              className="text-2xl font-medium text-secondary hover:text-white"
+              className="text-2xl font-medium text-foreground hover:text-secondary transition-colors"
               onClick={() => setIsOpen(false)}
             >
               {link.name}
@@ -78,10 +111,10 @@ export default function Header() {
           ))}
           <Link 
             href="/contact" 
-            className="bg-white text-black px-8 py-4 rounded-full text-lg font-bold mt-4"
+            className="bg-foreground text-background px-8 py-4 rounded-full text-lg font-bold mt-4"
             onClick={() => setIsOpen(false)}
           >
-            Book a Call
+            Start building
           </Link>
         </nav>
       </div>

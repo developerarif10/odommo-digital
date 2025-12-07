@@ -1,10 +1,8 @@
 import Footer from '@/components/Footer'
 import Header from '@/components/Header'
 import { ThemeProvider } from '@/components/ThemeProvider'
-import { Inter } from 'next/font/google'
+import { GeistSans } from 'geist/font/sans'
 import './globals.css'
-
-const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
 
 export const metadata = {
   title: {
@@ -23,7 +21,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className="scroll-smooth" suppressHydrationWarning>
-      <body className={`${inter.variable} bg-background text-foreground font-sans antialiased flex flex-col min-h-screen transition-colors duration-300`}>
+      <body className={`${GeistSans.variable} bg-background text-foreground font-sans antialiased flex flex-col min-h-screen transition-colors duration-300`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"

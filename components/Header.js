@@ -46,7 +46,7 @@ export default function Header() {
       <div className="container mx-auto px-6 flex items-center justify-between">
         <Link href="/" className="text-2xl font-bold tracking-tighter flex items-center gap-2 z-50 group">
           <span className="font-bold text-xl tracking-widest uppercase text-foreground group-hover:opacity-80 transition-opacity">
-            Notus
+            Odommo Dig.
           </span>
         </Link>
 

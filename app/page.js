@@ -1,4 +1,5 @@
 import About from '@/components/About'
+import Faq from '@/components/Faq'
 import Hero from '@/components/Hero'
 import HowWeHelp from '@/components/HowWeHelp'
 import LogoCarousel from '@/components/LogoCarousel'
@@ -16,6 +17,7 @@ export default function Home() {
       <HowWeHelp />
       <About />
       <Testimonials />
+      <Faq />
     </>
   )
 }

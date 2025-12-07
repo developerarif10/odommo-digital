@@ -1,79 +1,75 @@
 "use client"
 import { motion } from 'framer-motion'
-import { ArrowRight } from 'lucide-react'
+import { ArrowRight, Sparkles } from 'lucide-react'
 import Link from 'next/link'
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center pt-20 overflow-hidden">
-      {/* Background Elements */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[500px] bg-accent-blue/20 rounded-full blur-[120px] -z-10 opacity-50" />
-      <div className="absolute bottom-0 right-0 w-[800px] h-[600px] bg-accent-violet/10 rounded-full blur-[100px] -z-10 opacity-30" />
+    <section className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden bg-background">
+      {/* Subtle Background Spotlights - blending with header */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-primary/10 rounded-full blur-[100px] -z-10" />
+      <div className="absolute bottom-0 right-0 w-[600px] h-[500px] bg-accent-violet/5 rounded-full blur-[120px] -z-10" />
 
-      <div className="container mx-auto px-6 relative z-10">
-        <div className="max-w-4xl mx-auto text-center">
+      <div className="container mx-auto px-4 sm:px-6 relative z-10">
+        <div className="max-w-5xl mx-auto text-center flex flex-col items-center">
+          
+          {/* Pill Label */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-sm text-secondary mb-8"
+            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-secondary/10 border border-border text-sm font-medium text-secondary-foreground mb-8"
           >
-            <span className="w-2 h-2 rounded-full bg-accent-cyan animate-pulse" />
-            Available for new projects
+            <Sparkles className="w-4 h-4 text-primary fill-primary/20" />
+            <span>Your Digital Growth Partner</span>
           </motion.div>
 
+          {/* Headline */}
           <motion.h1 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-8 leading-[1.1]"
+            className="text-5xl sm:text-5xl md:text-6xl lg:text-6xl font-bold tracking-tighter text-foreground mb-8 leading-[1.1]"
           >
-            Crafting Digital <br />
-            <span className="text-gradient">Experiences</span> That Matter.
+            Transform Your Business Into a <span className="text-primary">Digital Powerhouse</span>
           </motion.h1>
 
+          {/* Description */}
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-xl text-secondary mb-12 max-w-2xl mx-auto leading-relaxed"
+            className="text-lg md:text-xl text-muted-foreground mb-10 max-w-2xl mx-auto leading-relaxed"
           >
-            We help forward-thinking brands build professional, high-converting websites that leave a lasting impression.
+            Fast, stunning, and conversion-focused websites for entrepreneurs and businesses ready to grow. We handle the design, development, and strategy—you focus on what you do best.
           </motion.p>
 
+          {/* Buttons */}
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.3 }}
-            className="flex flex-col sm:flex-row items-center justify-center gap-4"
+            className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto"
           >
             <Link 
               href="/contact" 
-              className="group bg-white text-black px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-200 transition-all flex items-center gap-2"
+              className="w-full sm:w-auto px-8 py-2 bg-primary text-white rounded-full font-bold text-lg hover:opacity-90 transition-all flex items-center justify-center gap-2 shadow-lg shadow-primary/25"
             >
-              Book a Call
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              Start Project
+              <ArrowRight className="w-4 h-4" />
             </Link>
             <Link 
-              href="#work" 
-              className="px-8 py-4 rounded-full font-medium text-lg text-white border border-white/20 hover:bg-white/10 transition-all"
+              href="#contact" 
+              className="w-full sm:w-auto px-8 py-4 bg-background border border-border text-foreground rounded-full font-bold text-lg hover:bg-secondary/10 transition-all flex items-center justify-center"
             >
-              View Our Work
+              Let's Talk
             </Link>
           </motion.div>
+
         </div>
       </div>
       
-      {/* Scroll Indicator */}
-      <motion.div 
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1, duration: 1 }}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-secondary text-sm"
-      >
-        <span>Scroll to explore</span>
-        <div className="w-[1px] h-12 bg-gradient-to-b from-secondary to-transparent" />
-      </motion.div>
+      
     </section>
   )
 }

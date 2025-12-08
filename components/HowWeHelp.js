@@ -1,10 +1,35 @@
 "use client"
+import { ArrowUpRight } from 'lucide-react'
+import Link from 'next/link'
+import SelectionLabel from './SelectionLabel'
 
 export default function HowWeHelp() {
   return (
     <section id="how-we-help" className="py-24 bg-background">
       <div className="container mx-auto px-6 max-w-7xl">
         
+        {/* Header: Real Impact */}
+        <div className="grid grid-cols-1 md:grid-cols-3 items-end gap-12 md:gap-6 mb-10 md:mb-12 pb-8">
+   
+          <div className="flex flex-col gap-1 justify-self-start">
+            <SelectionLabel text="Case study" />
+          </div>
+          
+          {/* Center: Title */}
+          <h2 className="text-5xl md:text-7xl font-bold tracking-tighter text-black dark:text-white leading-[0.9] text-center justify-self-center min-w-max">
+            Real Impact, <br />
+            <span className="text-zinc-400">Proven Results.</span>
+          </h2>
+
+          {/* Right: Link */}
+          <div className="flex justify-self-end pb-2">
+             <Link href="/case-studies" className="group flex items-center gap-2 text-base font-medium rounded-full bg-zinc-100 dark:bg-zinc-800 px-4 py-2 hover:bg-zinc-200 dark:hover:bg-zinc-700 transition-colors">
+               Full case study
+               <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+             </Link>
+          </div>
+        </div>
+
         {/* Top Row: Bento Grid 3 Cols */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
           
@@ -64,7 +89,7 @@ export default function HowWeHelp() {
              <p className="text-zinc-500 dark:text-zinc-400 font-medium text-sm">Years of Experience</p>
           </div>
 
-          {/* Stat 2 */}
+        {/* Stat 2 */}
           <div className="bg-zinc-50 dark:bg-zinc-900 rounded-[2rem] p-8 flex flex-col justify-between h-[200px]">
              <h3 className="text-4xl md:text-5xl font-bold text-white relative">
                100<span className="text-2xl align-top text-blue-600">+</span>

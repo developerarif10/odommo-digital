@@ -1,88 +1,123 @@
 "use client"
-import { motion } from 'framer-motion'
-import { BarChart, Code, PenTool, Smartphone } from 'lucide-react'
+import { AnimatePresence, motion } from 'framer-motion'
 import { useState } from 'react'
 
 const services = [
   {
     id: 1,
-    title: "Web Development",
-    description: "We build pixel-perfect, high-performance websites using modern technologies like Next.js and React. Our code is clean, scalable, and SEO-friendly.",
-    icon: Code,
-    color: "bg-accent-blue"
+    title: "Branding & Identity",
+    description: "We craft bold, memorable brand identities that tell your story and leave a lasting impression. From logos to full brand guidelines, we ensure consistency and impact across all touchpoints.",
+    timeline: "2 - 4 weeks"
   },
   {
     id: 2,
-    title: "UI/UX Design",
-    description: "User-centric design that looks beautiful and functions seamlessly. We create design systems, prototypes, and high-fidelity interfaces.",
-    icon: PenTool,
-    color: "bg-accent-violet"
+    title: "Web Design & Development",
+    description: "We build pixel-perfect, high-performance websites using modern technologies like Next.js and React. Our websites are designed to convert, with a focus on speed, accessibility, and SEO.",
+    timeline: "3 - 6 weeks"
   },
   {
     id: 3,
-    title: "Digital Strategy",
-    description: "Data-driven insights to grow your business. We help you define your digital roadmap and optimize your online presence for maximum impact.",
-    icon: BarChart,
-    color: "bg-accent-cyan"
+    title: "UI/UX Design",
+    description: "User-centric design that looks beautiful and functions seamlessly. We create intuitive interfaces and engaging user experiences that keep your customers coming back.",
+    timeline: "2 - 5 weeks"
   },
   {
     id: 4,
-    title: "Mobile Apps",
-    description: "Native and cross-platform mobile applications that provide a superior user experience on iOS and Android devices.",
-    icon: Smartphone,
-    color: "bg-pink-500"
+    title: "Motion & Visual Design",
+    description: "Bring your digital presence to life with captivating motion graphics and visual storytelling. We create dynamic assets that enhance engagement and communicate complex ideas simply.",
+    timeline: "1 - 3 weeks"
   }
 ]
+
+import SelectionLabel from './SelectionLabel'
+
+// ... imports
 
 export default function WhatWeDo() {
   const [activeId, setActiveId] = useState(1)
 
   return (
-    <section id="what-we-do" className="py-24 container mx-auto px-6">
-      <div className="mb-16 text-center max-w-2xl mx-auto">
-        <h2 className="text-4xl md:text-5xl font-bold mb-6">What We Do</h2>
-        <p className="text-secondary text-lg">
-          We offer a comprehensive suite of digital services to help your business thrive in the modern world.
-        </p>
-      </div>
+    <section id="what-we-do" className="py-24 bg-white dark:bg-black transition-colors duration-300">
+      <div className="container mx-auto px-6 max-w-7xl">
+        
+        {/* Header */}
+        <div className="mb-20 space-y-4">
+          <SelectionLabel text="Services" />
+          <h2 className="text-5xl md:text-7xl font-bold tracking-tighter text-black dark:text-white mt-4">
+            What we offer.
+          </h2>
+          <p className="text-zinc-500 dark:text-zinc-400 text-lg md:text-xl max-w-xl ml-auto text-right">
+            We specialize in creating bold, high-impact digital experiences that set brands apart.
+          </p>
+        </div>
 
-      <div className="flex flex-col lg:flex-row gap-4 h-[600px] lg:h-[500px]">
-        {services.map((service) => (
-          <motion.div
-            key={service.id}
-            layout
-            onClick={() => setActiveId(service.id)}
-            onHoverStart={() => setActiveId(service.id)}
-            className={`relative rounded-3xl overflow-hidden cursor-pointer transition-all duration-500 ease-out ${
-              activeId === service.id ? 'flex-[3]' : 'flex-[1]'
-            }`}
-          >
-            {/* Background Image/Gradient */}
-            <div className={`absolute inset-0 ${service.color} opacity-10`} />
-            <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/90" />
-            
-            <div className="absolute inset-0 p-8 flex flex-col justify-end">
-              <div className="mb-4 w-12 h-12 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center text-white">
-                <service.icon size={24} />
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 relative">
+          
+          {/* Left Column: Services List */}
+          <div className="space-y-4">
+            {services.map((service, index) => (
+              <div 
+                key={service.id}
+                onMouseEnter={() => setActiveId(service.id)}
+                onClick={() => setActiveId(service.id)}
+                className="relative cursor-pointer group"
+              >
+                <div className={`relative z-10 px-8 py-6 flex items-center gap-6 rounded-2xl transition-colors duration-500 ${
+                  activeId === service.id 
+                    ? 'text-black dark:text-white' 
+                    : 'text-zinc-400 dark:text-zinc-500 hover:text-black dark:hover:text-zinc-300'
+                }`}>
+                  {/* Active Background Pill */}
+                  {activeId === service.id && (
+                    <motion.div
+                      layoutId="activePill"
+                      className="absolute inset-0 bg-zinc-100 dark:bg-zinc-800 rounded-2xl"
+                      transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+                    />
+                  )}
+
+                  <span className={`relative z-10 text-lg font-medium font-mono ${activeId === service.id ? 'text-zinc-600 dark:text-zinc-400' : ''}`}>
+                    {String(index + 1).padStart(2, '0')}.
+                  </span>
+                  <h3 className="relative z-10 text-2xl md:text-3xl font-medium tracking-tight">
+                    {service.title}
+                  </h3>
+                </div>
               </div>
-              
-              <motion.h3 
-                layout="position"
-                className={`text-2xl font-bold text-white mb-2 ${activeId !== service.id && 'lg:-rotate-90 lg:origin-bottom-left lg:absolute lg:bottom-20 lg:left-8 lg:w-64 lg:mb-0'}`}
-              >
-                {service.title}
-              </motion.h3>
-              
-              <motion.p 
-                initial={{ opacity: 0 }}
-                animate={{ opacity: activeId === service.id ? 1 : 0 }}
-                className={`text-gray-300 ${activeId === service.id ? 'block' : 'hidden'}`}
-              >
-                {service.description}
-              </motion.p>
-            </div>
-          </motion.div>
-        ))}
+            ))}
+          </div>
+
+          {/* Right Column: Details Card (Sticky on Desktop) */}
+          <div className="lg:h-[500px] lg:sticky lg:top-32">
+             <div className="relative h-full">
+               <AnimatePresence mode="wait">
+                 <motion.div
+                   key={activeId}
+                   initial={{ opacity: 0, y: 20 }}
+                   animate={{ opacity: 1, y: 0 }}
+                   exit={{ opacity: 0, y: -20 }}
+                   transition={{ duration: 0.3 }}
+                   className="w-full bg-zinc-100 dark:bg-zinc-900 rounded-[2rem] p-10 md:p-12 flex flex-col justify-between h-[400px] md:h-[500px]"
+                 >
+                   <div>
+                     <p className="text-xl md:text-2xl text-zinc-600 dark:text-zinc-300 leading-relaxed font-medium">
+                       {services.find(s => s.id === activeId)?.description}
+                     </p>
+                   </div>
+                   
+                   <div>
+                     <div className="h-px w-full bg-zinc-300 dark:bg-zinc-800 mb-6"></div>
+                     <div className="flex justify-between items-center text-sm font-medium">
+                       <span className="text-zinc-500 dark:text-zinc-500 uppercase tracking-widest">Timeline</span>
+                       <span className="text-black dark:text-white">{services.find(s => s.id === activeId)?.timeline}</span>
+                     </div>
+                   </div>
+                 </motion.div>
+               </AnimatePresence>
+             </div>
+          </div>
+
+        </div>
       </div>
     </section>
   )

@@ -1,4 +1,5 @@
 "use client"
+import SelectionLabel from '@/components/SelectionLabel'
 import { motion } from 'framer-motion'
 import { useState } from 'react'
 
@@ -56,11 +57,8 @@ export default function Contact() {
           {/* LEFT COLUMN - Info */}
           <div className="space-y-12">
             <div className="space-y-6">
-              <div className="flex items-center gap-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-red-600"></span>
-                <span className="text-sm font-medium text-zinc-600 dark:text-zinc-400 uppercase tracking-wide">Contact us</span>
-              </div>
-              <h1 className="text-6xl md:text-8xl font-bold tracking-tighter text-black dark:text-white leading-tight">
+              <SelectionLabel text="Contact us" />
+              <h1 className="text-6xl md:text-8xl font-bold tracking-tighter text-black dark:text-white leading-tight mt-4">
                 Get in <span className="text-zinc-500 dark:text-zinc-500">Touch.</span>
               </h1>
               <p className="text-lg text-zinc-500 dark:text-zinc-400 max-w-md leading-relaxed">

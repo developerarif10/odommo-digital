@@ -1,6 +1,6 @@
 "use client"
 import { AnimatePresence, motion } from 'framer-motion'
-import { ChevronDown } from 'lucide-react'
+import { Plus } from 'lucide-react'
 import { useState } from 'react'
 
 const faqs = [
@@ -34,42 +34,36 @@ export default function Faq() {
   const [openIndex, setOpenIndex] = useState(0)
 
   return (
-    <section className="py-24 bg-background relative overflow-hidden">
-      <div className="container mx-auto px-6 max-w-4xl">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tighter mb-4">Frequently Asked Questions</h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
-            Answers to common questions about Odommo Digital and our services. If you have any other questions, please don't hesitate to contact us.
-          </p>
-        </div>
-
-        <div className="space-y-4">
+    <section className="py-24 bg-background">
+      <div className="container mx-auto px-6 max-w-3xl">
+        <div className="space-y-0">
           {faqs.map((faq, index) => (
             <div 
               key={index} 
-              className="border border-border rounded-2xl bg-secondary/5 overflow-hidden transition-all duration-300 hover:border-primary/20"
+              className="border-b last:border-0 border-dashed"
+              style={{ borderColor: 'rgb(0 0 0 / 10%)' }}
             >
               <button
                 onClick={() => setOpenIndex(index === openIndex ? -1 : index)}
-                className="w-full flex items-center justify-between p-6 text-left"
+                className="w-full flex items-center justify-between py-6 text-left group"
               >
-                <span className="text-lg font-semibold tracking-tight">{faq.question}</span>
-                <ChevronDown 
-                  className={`w-5 h-5 text-muted-foreground transition-transform duration-300 ${
-                    index === openIndex ? 'rotate-180 text-primary' : ''
-                  }`} 
-                />
+                <span className="text-lg md:text-xl font-medium tracking-tight pr-8">{faq.question}</span>
+                <span className={`relative flex items-center justify-center w-6 h-6 transition-transform duration-200 ease-out ${
+                  index === openIndex ? 'rotate-45' : 'rotate-0'
+                }`}>
+                  <Plus className="w-6 h-6 text-foreground" />
+                </span>
               </button>
               
-              <AnimatePresence>
+              <AnimatePresence initial={false}>
                 {index === openIndex && (
                   <motion.div
                     initial={{ height: 0, opacity: 0 }}
                     animate={{ height: 'auto', opacity: 1 }}
                     exit={{ height: 0, opacity: 0 }}
-                    transition={{ duration: 0.3, ease: 'easeInOut' }}
+                    transition={{ duration: 0.2, ease: 'easeOut' }}
                   >
-                    <div className="px-6 pb-6 text-muted-foreground leading-relaxed">
+                    <div className="pb-6 text-muted-foreground leading-relaxed text-base md:text-lg">
                       {faq.answer}
                     </div>
                   </motion.div>

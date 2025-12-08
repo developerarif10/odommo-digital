@@ -1,4 +1,3 @@
-import About from '@/components/About'
 import CTASection from '@/components/CTASection'
 import Faq from '@/components/Faq'
 import Hero from '@/components/Hero'
@@ -17,7 +16,6 @@ export default function Home() {
       <WhatWeDo />
       <HowWeHelp />
       <CTASection />
-      <About />
       <Testimonials />
       <Faq />
     </>

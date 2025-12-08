@@ -23,7 +23,7 @@
 
 .dark {
   /* Premium Dark Mode Palette */
-  --background: #1d1d1d; /* User's Dark */
+  --background: #000000; /* User's Dark */
   --foreground: #ffffff;
   
   --primary: #248cfd; /* User's Blue */

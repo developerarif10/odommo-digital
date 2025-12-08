@@ -7,25 +7,25 @@ const services = [
   {
     id: 1,
     title: 'Digital Marketing',
-    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop',
+    image: '/images/portfolio/work-1.webp',
     details: ['Stationary', 'Outdoor'],
   },
   {
     id: 2,
     title: 'Web Development',
-    image: 'https://images.unsplash.com/photo-1547658719-da2b51169166?q=80&w=2064&auto=format&fit=crop',
+    image: '/images/portfolio/work-2.webp',
     details: ['Art Direction', 'UX Design', 'UI Design'],
   },
   {
     id: 3,
     title: 'Video Editor',
-    image: 'https://images.unsplash.com/photo-1574717436401-097d83565eb3?q=80&w=2070&auto=format&fit=crop',
+    image: '/images/portfolio/work-1.webp',
     details: ['Content Creator', 'Presentation'],
   },
   {
     id: 4,
     title: 'Branding',
-    image: 'https://images.unsplash.com/photo-1634942537034-2531766767d1?q=80&w=2070&auto=format&fit=crop',
+    image: '/images/portfolio/work-2.webp',
     details: ['Product', 'Engagement'],
   },
 ];

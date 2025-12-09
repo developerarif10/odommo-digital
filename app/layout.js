@@ -21,7 +21,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className="scroll-smooth" suppressHydrationWarning>
-      <body className={`${GeistSans.variable} bg-background text-foreground font-sans antialiased flex flex-col min-h-screen transition-colors duration-300`}>
+      <body className={`${GeistSans.className} bg-background text-foreground font-sans antialiased flex flex-col min-h-screen transition-colors duration-300`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"

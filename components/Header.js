@@ -1,4 +1,5 @@
 "use client"
+import { AnimatePresence, motion } from 'framer-motion'
 import { Menu, Moon, Sun, X } from 'lucide-react'
 import { useTheme } from 'next-themes'
 import Link from 'next/link'
@@ -97,42 +98,117 @@ export default function Header() {
           </button>
           
           <button 
-            className="text-foreground"
+            className="text-foreground relative z-50"
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Toggle menu"
           >
-            {isOpen ? <X size={24} /> : <Menu size={24} />}
+             <AnimatePresence mode="wait">
+              {isOpen ? (
+                <motion.div
+                  key="close"
+                  initial={{ opacity: 0, rotate: -90 }}
+                  animate={{ opacity: 1, rotate: 0 }}
+                  exit={{ opacity: 0, rotate: 90 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <X size={24} />
+                </motion.div>
+              ) : (
+                <motion.div
+                  key="menu"
+                  initial={{ opacity: 0, rotate: 90 }}
+                  animate={{ opacity: 1, rotate: 0 }}
+                  exit={{ opacity: 0, rotate: -90 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <Menu size={24} />
+                </motion.div>
+              )}
+            </AnimatePresence>
           </button>
         </div>
       </div>
 
-      {/* Mobile Nav */}
-      <div className={`fixed inset-0 bg-background z-40 flex flex-col justify-center items-center transition-transform duration-300 md:hidden ${isOpen ? 'translate-x-0' : 'translate-x-full'}`}>
-        <nav className="flex flex-col gap-8 text-center">
-          {navLinks.map((link) => (
-            <Link 
-              key={link.name} 
-              href={link.href}
-              className="text-2xl font-medium text-foreground hover:text-secondary transition-colors"
-              onClick={() => setIsOpen(false)}
-            >
-              {link.name}
-            </Link>
-          ))}
-          <div className="mt-4" onClick={() => setIsOpen(false)}>
-           <Button
-            href="/contact" 
-            className="px-6 py-2.5 font-bold text-sm"
-            bgColor="bg-foreground"
-            textColor="text-background"
-            hoverBgColor="hover:opacity-90"
-            icon={<RightArrow />}
+      {/* Mobile Nav Overlay */}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ 
+              opacity: 1, 
+              height: "100vh",
+              transition: { duration: 0.4, ease: [0.32, 0.72, 0, 1] } 
+            }}
+            exit={{ 
+              opacity: 0, 
+              height: 0,
+              transition: { duration: 0.3, delay: 0.1, ease: [0.32, 0.72, 0, 1] }  
+            }}
+            className="fixed inset-0 bg-background z-40 overflow-hidden flex flex-col pt-32 px-6"
           >
-            Start building
-          </Button>
-          </div>
-        </nav>
-      </div>
+            <nav className="flex flex-col gap-6">
+              {navLinks.map((link, index) => (
+                <motion.div
+                  key={link.name}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ 
+                    opacity: 1, 
+                    x: 0,
+                    transition: { delay: 0.1 + index * 0.1, duration: 0.4, ease: "easeOut" }
+                  }}
+                  exit={{ 
+                    opacity: 0, 
+                    x: -20,
+                    transition: { duration: 0.3 }
+                  }}
+                >
+                  <Link 
+                    href={link.href}
+                    className="text-4xl md:text-5xl font-bold tracking-tight text-foreground/80 hover:text-primary transition-colors block py-2 border-b border-white/5"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    {link.name}
+                  </Link>
+                </motion.div>
+              ))}
+              
+              <motion.div 
+                 initial={{ opacity: 0, y: 20 }}
+                  animate={{ 
+                    opacity: 1, 
+                    y: 0,
+                    transition: { delay: 0.6, duration: 0.4 }
+                  }}
+                  exit={{ opacity: 0, y: 20 }}
+                  className="mt-8"
+                  onClick={() => setIsOpen(false)}
+              >
+                  <Button
+                    href="/contact" 
+                    className="w-full justify-between py-6 text-lg"
+                    bgColor="bg-foreground"
+                    textColor="text-background"
+                    hoverBgColor="hover:opacity-90"
+                    icon={<RightArrow />}
+                  >
+                    Start building
+                  </Button>
+              </motion.div>
+            </nav>
+            
+             {/* Decorative Elements */}
+            <motion.div 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 0.1, transition: { delay: 0.5, duration: 1 } }}
+              exit={{ opacity: 0 }}
+              className="absolute bottom-10 left-6 text-[120px] font-bold leading-none pointer-events-none select-none"
+            >
+              ODOMMO
+            </motion.div>
+            
+          </motion.div>
+        )}
+      </AnimatePresence>
     </header>
   )
 }

@@ -78,6 +78,7 @@ export default function Faq() {
             {word}
           </motion.span>
         ))} </motion.h2>
+        
         <motion.span variants={wordVariants} className="inline-block">
           <UnderlineToBackground className="cursor-pointer">
             <div className="flex items-center gap-2">Contact Us <RightArrow/></div>

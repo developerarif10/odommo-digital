@@ -5,7 +5,7 @@ import RightArrow from './mycomponent/RightArrow'
 
 export default function HowWeHelp() {
   return (
-    <section id="how-we-help" className="pb-12">
+    <section id="how-we-help" className="py-6 md:py-12">
       <div className="container mx-auto px-6 max-w-7xl">
         
         {/* Header: Real Impact */}

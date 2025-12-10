@@ -1,5 +1,6 @@
 "use client"
 import { projects } from '@/lib/content'
+import { motion } from "framer-motion"
 import ProjectCard from './ProjectCard'
 import Button from './mycomponent/Button'
 import RightArrow from './mycomponent/RightArrow'
@@ -7,6 +8,20 @@ import RightArrow from './mycomponent/RightArrow'
 export default function WorkSection() {
   // Ensure we have at least 4 projects, or duplicate if needed for the layout
   const displayProjects = projects.length >= 4 ? projects.slice(0, 4) : [...projects, ...projects].slice(0, 4)
+
+  const fadeInVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { duration: 0.5, staggerChildren: 0.1 },
+    },
+  }
+
+   const wordVariants = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1 },
+  }  
+    const words = "A showcase of our recent collaborations with ambitious brands and startups.".split(" ")
 
   return (
     <section id="work" className="py-24 container mx-auto px-6">
@@ -16,9 +31,17 @@ export default function WorkSection() {
             <span className="text-zinc-400 dark:text-zinc-600">Work.</span>
           </h2>
 
-          <p className="text-zinc-500 dark:text-zinc-400 text-end md:text-lg max-w-sm leading-relaxed justify-self-center">
-            A showcase of our recent collaborations with ambitious brands and startups.
-          </p>
+           <motion.p
+        initial="hidden"
+        animate="visible"
+        className='mb-6'
+        variants={fadeInVariants}
+      >
+        {words.map((word, index) => (
+          <motion.span key={index} variants={wordVariants} className="text-zinc-500 dark:text-zinc-400 text-end md:text-lg max-w-sm leading-relaxed justify-self-center inline-block mr-1">
+            {word}
+          </motion.span>
+        ))} </motion.p>
             
           <Button 
             className="w-full sm:w-auto px-6 py-2 font-medium whitespace-nowrap justify-self-end"

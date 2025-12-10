@@ -53,7 +53,7 @@ export default function Faq() {
     const words = "We know every project is unique, and you might have some questions before getting started.".split(" ")
 
   return (
-    <section className="py-24">
+    <section className="py-6">
       <div className="container mx-auto px-6 max-w-7xl">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24">
           

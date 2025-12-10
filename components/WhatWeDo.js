@@ -31,10 +31,23 @@ const services = [
 ]
 
 
-// ... imports
-
 export default function WhatWeDo() {
   const [activeId, setActiveId] = useState(1)
+
+   const fadeInVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { duration: 0.5, staggerChildren: 0.1 },
+    },
+  }
+ const wordVariants = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1 },
+  }
+
+    const words = "We specialize in creating bold, high-impact digital experiences that set brands apart.".split(" ")
+
 
   return (
     <section id="what-we-do" className="transition-colors duration-300">
@@ -42,7 +55,7 @@ export default function WhatWeDo() {
         
 
         {/* Header - Redesigned V2: Label - Title - Description */}
-        <div className="flex flex-col md:grid md:grid-cols-3 items-start md:items-center gap-8 mb-8 pb-8">
+        <div className="flex flex-col md:grid md:grid-cols-3 items-start md:items-center gap-6 md:gap-8 mb-2 md:mb-8 pb-2 md:pb-8">
           {/* Left: Services Label */}
           <div className="flex items-center gap-2 justify-self-start">
             <SelectionLabel text="Services" />
@@ -55,9 +68,19 @@ export default function WhatWeDo() {
           </h2>
             
           {/* Right: Description */}
-          <p className="text-zinc-500 dark:text-zinc-400 text-base md:text-lg max-w-sm leading-relaxed md:text-right justify-self-end">
-             We specialize in creating bold, high-impact digital experiences that set brands apart.
-          </p>
+         <motion.h2
+        initial="hidden"
+        animate="visible"
+        className='mb-6'
+        variants={fadeInVariants}
+      >
+        {words.map((word, index) => (
+          <motion.span key={index} variants={wordVariants} className="inline-block mr-1 text-zinc-500 dark:text-zinc-400 text-base md:text-lg max-w-sm leading-relaxed md:text-right justify-self-end">
+            {word}
+          </motion.span>
+        ))} </motion.h2>
+        
+
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 relative">

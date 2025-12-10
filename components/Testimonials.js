@@ -102,7 +102,7 @@ const TestimonialSection = () => {
   };
 
   return (
-    <section ref={ref} className="relative w-full pt-12">
+    <section ref={ref} className="relative w-full py-12">
       
       <div className="relative mx-auto max-w-7xl px-6 lg:px-8 z-10">
         

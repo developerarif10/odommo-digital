@@ -24,14 +24,14 @@ export default function WorkSection() {
     const words = "A showcase of our recent collaborations with ambitious brands and startups.".split(" ")
 
   return (
-    <section id="work" className="py-24 container mx-auto px-6">
-     <div className="flex flex-col md:grid md:grid-cols-3 items-start md:items-center gap-6 pb-12">
+    <section id="work" className="py-12 md:py-24 container mx-auto px-6">
+     <div className="flex flex-col md:grid md:grid-cols-3 items-start md:items-center gap-3 md:gap-6 pb-6 md:pb-12">
           <h2 className="text-4xl md:text-6xl font-bold tracking-tighter leading-[0.9] justify-self-start">
             <span className="">Selected </span>
             <span className="text-zinc-400 dark:text-zinc-600">Work.</span>
           </h2>
 
-           <motion.p
+           <motion.h2
         initial="hidden"
         animate="visible"
         className='mb-6'
@@ -41,7 +41,7 @@ export default function WorkSection() {
           <motion.span key={index} variants={wordVariants} className="text-zinc-500 dark:text-zinc-400 text-end md:text-lg max-w-sm leading-relaxed justify-self-center inline-block mr-1">
             {word}
           </motion.span>
-        ))} </motion.p>
+        ))} </motion.h2>
             
           <Button 
             className="w-full sm:w-auto px-6 py-2 font-medium whitespace-nowrap justify-self-end"

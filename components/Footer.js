@@ -1,21 +1,50 @@
+'use client'
 import { FlickeringGrid } from '@/components/ui/flickering-grid'
+import { motion } from 'framer-motion'
 import { Github, Linkedin, Twitter } from 'lucide-react'
 import Link from 'next/link'
 
 export default function Footer() {
   const year = new Date().getFullYear()
 
+
+  const fadeInVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { duration: 0.5, staggerChildren: 0.1 },
+    },
+  }
+ const wordVariants = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1 },
+  }
+
+    const words = "Crafting digital experiences that merge art with technology. Let's build something extraordinary together.".split(" ")
+
+
   return (
     <footer className="bg-background pt-20 relative overflow-hidden ">
       <div className="container mx-auto px-6 mb-20 ">
-        <div className="grid md:grid-cols-4 gap-12 mb-16 ">
+        <div className="grid md:grid-cols-4 gap-12 mb-16">
           <div className="col-span-1 md:col-span-2 ">
             <Link href="/" className="text-2xl font-bold tracking-tighter mb-6 block">
               <span className="font-bold text-xl text-foreground">Odommo Digital</span>
             </Link>
-            <p className="text-muted-foreground max-w-sm mb-8">
-              Crafting digital experiences that merge art with technology. Let's build something extraordinary together.
-            </p>
+           
+            <motion.h2
+        initial="hidden"
+        animate="visible"
+        className='mb-6'
+        variants={fadeInVariants}
+      >
+        {words.map((word, index) => (
+          <motion.span key={index} variants={wordVariants} className="inline-block mr-1 ">
+            {word}
+          </motion.span>
+        ))} </motion.h2>
+           
+
             <div className="flex gap-4">
               <a href="#" className="w-10 h-10 rounded-full bg-secondary/10 flex items-center justify-center hover:bg-primary hover:text-white transition-all text-muted-foreground">
                 <Twitter size={18} />

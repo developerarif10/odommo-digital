@@ -5,11 +5,11 @@ import RightArrow from './mycomponent/RightArrow'
 
 export default function HowWeHelp() {
   return (
-    <section id="how-we-help" className="py-6 md:py-12">
+    <section id="how-we-help" className="py-12 md:py-6">
       <div className="container mx-auto px-6 max-w-7xl">
         
         {/* Header: Real Impact */}
-        <div className="grid grid-cols-1 md:grid-cols-3 items-end gap-12 md:gap-6 mb-10 md:mb-12 pb-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-2 md:mb-8 pb-2 md:pb-8">
    
           <div className="flex flex-col gap-1 justify-self-start">
             <SelectionLabel text="Case study" />
@@ -22,7 +22,7 @@ export default function HowWeHelp() {
           </h2>
 
           {/* Right: Link */}
-          <div className="flex justify-self-end pb-2">
+          <div className="flex justify-self-start md:justify-self-end pb-2">
              <Button
                href="/case-studies" 
                className="w-full sm:w-auto px-6 py-2 font-bold text-lg shadow-lg shadow-gray-200/5"

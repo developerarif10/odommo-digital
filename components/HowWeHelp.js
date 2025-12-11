@@ -47,7 +47,7 @@ export default function HowWeHelp() {
             </div>
             <div>
               <p className="text-xl md:text-2xl font-medium leading-relaxed tracking-tight text-black dark:text-white">
-                Crafted a refined digital identity and eCommerce experience for a luxury skincare brand, resulting in a 180% increase in online conversions.
+               A luxury skincare brand needed to stand out in a saturated market. Their outdated website was costing them sales, and their brand identity wasn't attracting their ideal premium customers.
               </p>
             </div>
           </div>
@@ -91,7 +91,7 @@ export default function HowWeHelp() {
           {/* Stat 1 */}
           <div className="bg-zinc-50 dark:bg-zinc-900 rounded-xl p-8 flex flex-col justify-between h-[200px]">
              <h3 className="text-4xl md:text-5xl font-bold text-black dark:text-white relative">
-               15<span className="text-2xl align-top text-blue-600">+</span>
+               05<span className="text-2xl align-top text-blue-600">+</span>
              </h3>
              <p className="text-zinc-500 dark:text-zinc-400 font-medium text-sm">Years of Experience</p>
           </div>
@@ -99,7 +99,7 @@ export default function HowWeHelp() {
         {/* Stat 2 */}
           <div className="bg-zinc-50 dark:bg-zinc-900 rounded-xl p-8 flex flex-col justify-between h-[200px]">
              <h3 className="text-4xl md:text-5xl font-bold text-black dark:text-white relative">
-               100<span className="text-2xl align-top text-blue-600">+</span>
+               35<span className="text-2xl align-top text-blue-600">+</span>
              </h3>
              <p className="text-zinc-500 dark:text-zinc-400 font-medium text-sm">Projects completed</p>
           </div>

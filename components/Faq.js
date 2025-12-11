@@ -2,6 +2,7 @@
 
 import { AnimatePresence, motion } from 'framer-motion'
 import { Plus } from 'lucide-react'
+import Link from 'next/link'
 import { useState } from 'react'
 import SelectionLabel from './SelectionLabel'
 import RightArrow from './mycomponent/RightArrow'
@@ -9,28 +10,102 @@ import UnderlineToBackground from './mycomponent/underline-to-background'
 
 const faqs = [
   {
-    question: "What is Odommo Digital?",
-    answer: "Odommo Digital is a full-service digital agency specializing in high-performance web development, modern UI/UX design, and strategic digital growth. We function as your dedicated partner in building a powerful online presence."
+    question: "How much does a website cost?",
+    answer: (
+      <div className="space-y-4">
+        <p>Most business websites range from <strong>$2,500 to $8,000</strong> depending on features and complexity.</p>
+        <p>A simple 5-page site starts around $2,500. Need eCommerce or custom functionality? Expect $5,000-$8,000+.</p>
+        <p>Here's the real question: <em>How much is your current website costing you in lost customers?</em></p>
+        <Link href="/contact" className="inline-flex items-center gap-2 font-medium underline  transition-all pt-2 group">
+          Get your free estimate <span className="group-hover:translate-x-1 transition-transform">→</span>
+        </Link>
+      </div>
+    )
   },
   {
-    question: "How does the process work?",
-    answer: "We start with a discovery call to understand your goals. Then, we move to strategic planning and design. Once approved, we build your solution using the latest technologies. Finally, we launch, test, and offer ongoing support to ensure your success."
+    question: "How long does it take?",
+    answer: (
+      <div className="space-y-4">
+        <ul className="list-disc list-inside space-y-1 ml-1">
+          <li><strong>Brand Identity:</strong> 2-3 weeks</li>
+          <li><strong>Website Design:</strong> 4-8 weeks</li>
+          <li><strong>Full Digital Package:</strong> 8-12 weeks</li>
+        </ul>
+        <p>Timeline depends on your feedback speed and project scope. We'll give you exact dates on our kickoff call.</p>
+        <Link href="/contact" className="inline-flex items-center gap-2 font-medium underline  transition-all pt-2 group">
+          Book your strategy call <span className="group-hover:translate-x-1 transition-transform">→</span>
+        </Link>
+      </div>
+    )
   },
   {
-    question: "How secure is my data?",
-    answer: "Security is our top priority. We use industry-standard encryption, secure hosting environments (like Vercel/AWS), and best practices in code security to ensure your data and your users' data remain protected at all times."
+    question: "Do I need a new website if I already have one?",
+    answer: (
+      <div className="space-y-4">
+        <p>Ask yourself:</p>
+        <ul className="list-disc list-inside space-y-1 ml-1">
+            <li>Is it mobile-friendly?</li>
+            <li>Does it load in under 3 seconds?</li>
+            <li>Does it look professional and trustworthy?</li>
+            <li>Are you getting leads from it?</li>
+        </ul>
+        <p>If you answered "no" to any of these, your site is costing you business.</p>
+        <Link href="/contact" className="inline-flex items-center gap-2 font-medium underline transition-all pt-2 group">
+          Get a free website audit <span className="group-hover:translate-x-1 transition-transform">→</span>
+        </Link>
+      </div>
+    )
   },
   {
-    question: "Do you offer ongoing support?",
-    answer: "Yes! We believe in long-term partnerships. We offer various maintenance packages that include security updates, content changes, performance monitoring, and priority support to keep your digital assets running smoothly."
+    question: "What if I don't have content ready?",
+    answer: (
+      <div className="space-y-4">
+        <p>No problem. Most clients don't.</p>
+        <p>We provide:</p>
+        <ul className="space-y-1 ml-1">
+            <li>✓ Professional copywriting</li>
+            <li>✓ Content strategy</li>
+            <li>✓ Logo design (if needed)</li>
+            <li>✓ Stock photo recommendations</li>
+        </ul>
+        <p>Don't let missing content stop you from starting.</p>
+        <Link href="/contact" className="inline-flex items-center gap-2 font-medium underline transition-all pt-2 group">
+          Let's plan your project <span className="group-hover:translate-x-1 transition-transform">→</span>
+        </Link>
+      </div>
+    )
   },
   {
-    question: "Is there a free consultation available?",
-    answer: "Absolutely. We offer a complimentary initial consultation to discuss your project requirements, assess fit, and provide you with a roadmap for your digital transformation."
+    question: "Will my website show up on Google?",
+    answer: (
+      <div className="space-y-4">
+        <p>Yes—every site we build is SEO-optimized: fast loading, mobile-responsive, clean code, and proper structure.</p>
+        <p>But ranking #1? That requires ongoing SEO and content marketing (which we also offer).</p>
+        <p>Think of it as: we build the foundation, you decide if you want to compete for top rankings.</p>
+        <Link href="/contact" className="inline-flex items-center gap-2 font-medium underline transition-all` pt-2 group">
+          Learn about SEO services <span className="group-hover:translate-x-1 transition-transform">→</span>
+        </Link>
+      </div>
+    )
   },
   {
-    question: "Why choose Odommo Digital over others?",
-    answer: "We combine aesthetic excellence with technical rigor. Unlike generic agencies, we don't just build websites; we build digital powerhouses designed to convert. Our hybrid approach ensures you get both beautiful design and rock-solid engineering."
+    question: "What makes you different?",
+    answer: (
+      <div className="space-y-4">
+        <p>Simple:</p>
+        <ul className="list-disc list-inside space-y-1 ml-1">
+            <li>We focus on results, not just pretty designs</li>
+            <li>You get direct access to your project team</li>
+            <li>We speak human, not tech jargon</li>
+            <li>Fast turnaround without cutting corners</li>
+            <li>We care about your growth, not just our portfolio</li>
+        </ul>
+        <p>We're not the cheapest—but we're the best investment.</p>
+        <Link href="/contact" className="inline-flex items-center gap-2 font-medium underline transition-all pt-2 group">
+          See what clients say <span className="group-hover:translate-x-1 transition-transform">→</span>
+        </Link>
+      </div>
+    )
   }
 ]
 

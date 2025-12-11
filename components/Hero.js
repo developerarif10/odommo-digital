@@ -24,7 +24,7 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
             className="inline-flex items-center gap-2 px-4 text-sm font-medium mb-8"
-          ><SelectionLabel text="Your Digital Growth Partner" />
+          ><SelectionLabel text="Is Your Business Getting Lost Online?" />
           </motion.div>
 
           {/* Headline */}
@@ -34,8 +34,8 @@ export default function Hero() {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="text-5xl sm:text-5xl md:text-6xl lg:text-6xl font-bold tracking-tighter text-foreground mb-8 leading-[1.1]"
           >
-            Transform Your Business Into a <br/> <Highlight className="text-black dark:text-white">
-         Digital Powerhouse
+            You Deserve a Digital Presence That Drives <Highlight className="text-black dark:text-white">
+         Real Growth
         </Highlight>
           </motion.h1>
 
@@ -44,9 +44,11 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-lg md:text-xl text-muted-foreground mb-10 max-w-2xl mx-auto leading-relaxed"
+            className="text-sm md:text-lg text-muted-foreground mb-10 max-w-2xl mx-auto leading-relaxed"
           >
-            Fast, stunning, and conversion-focused websites for entrepreneurs and businesses ready to grow. We handle the design, development, and strategy—you focus on what you do best.
+           Whether you're launching a startup, scaling your business, or ready to stand out in a crowded market—you need more than just a website. You need a complete digital strategy that attracts customers, builds trust, and turns visitors into loyal clients.
+           <br/>
+Stop blending in. Start growing.
           </motion.p>
 
           {/* Buttons */}
@@ -65,10 +67,10 @@ export default function Hero() {
               hoverBgColor=""
           icon={<RightArrow width={16} height={16} />}
             >
-              Start Project
+              Get Your Free Strategy Call
             </Button>
             <Button 
-              href="/contact" 
+              href="/portfolio" 
               className="w-full sm:w-auto px-8 py-2 font-bold text-lg"
               bgColor="bg-background"
               textColor="text-foreground"
@@ -76,7 +78,7 @@ export default function Hero() {
               slideHoverColor="bg-primary"
               hoverTextColor="hover:text-black dark:hover:text-white"
             >
-              Let's Talk
+              See Our Work
             </Button>
           </motion.div>
 

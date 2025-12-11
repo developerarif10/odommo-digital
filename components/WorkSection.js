@@ -21,7 +21,7 @@ export default function WorkSection() {
     hidden: { opacity: 0 },
     visible: { opacity: 1 },
   }  
-    const words = "A showcase of our recent collaborations with ambitious brands and startups.".split(" ")
+    const words = "See how businesses like yours transformed their online presence and attracted more customers with the right digital strategy.".split(" ")
 
   return (
     <section id="work" className="py-12 md:py-24 container mx-auto px-6">

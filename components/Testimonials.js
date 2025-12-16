@@ -19,48 +19,64 @@ const testimonials = [
     id: 1,
     companyName: 'Velocity',
     companyIcon: <IoLogoElectron />,
-    quote: 'They tailor their solutions to our specific needs and goals, creating a truly bespoke experience.',
-    author: { name: 'Denis Slavska', role: 'CTO, Ailitic', location: 'New York, NY', img: 'https://i.pravatar.cc/150?u=1' },
+    quote: 'Built a landing page for my new product. Design is clean and simple. People can order easily now without confusion. Good work.',
+    author: { name: 'Mr. Rezaul Karim', role: 'MD, Karim & Sons Trading', location: 'Dhaka', img: '/images/testimonial/testimonial-1.webp' },
     gradient: 'from-blue-500 via-cyan-400 to-transparent'
   },
   {
     id: 2,
     companyName: 'Vortex',
     companyIcon: <IoPlanet />,
-    quote: 'They organized their work and internal management was outstanding. A benchmark for efficiency.',
-    author: { name: 'Jahan Melad', role: 'PM, Buildwave', location: 'Austin, TX', img: 'https://i.pravatar.cc/150?u=2' },
+    quote: 'Website was loading very slow. Customers leave before opening. Odommo team fix the speed issue. Now site is flying. Very happy with the service',
+    author: { name: 'Fahim Chowdhury', role: 'Prop, Gadget World', location: 'Dhaka', img: '/images/testimonial/testimonial-2.webp' },
     gradient: 'from-orange-500 via-amber-400 to-transparent'
   },
   {
     id: 3,
     companyName: 'Synergy',
     companyIcon: <IoLogoVenmo />,
-    quote: 'Working with them was a great experience. The ROI we saw within the first month was incredible.',
-    author: { name: 'Jim Halpert', role: 'Lead Eng, InHive', location: 'San Francisco, CA', img: 'https://i.pravatar.cc/150?u=3' },
+    quote: 'I didnt know anything about website. They guided me step by step. Very patient team. Support system is 10/10.',
+    author: { name: 'Md. Jashim', role: 'Director, Jashim Foods', location: 'Dhaka', img: '/images/testimonial/testimonial-3.webp' },
     gradient: 'from-emerald-500 via-teal-400 to-transparent'
   },
   {
     id: 4,
     companyName: 'NextGen',
     companyIcon: <IoLogoVercel />,
-    quote: 'The level of attention to detail and engineering excellence they brought to the table was unmatched.',
-    author: { name: 'Sarah Connors', role: 'VP, Skynet', location: 'Los Angeles, CA', img: 'https://i.pravatar.cc/150?u=4' },
+    quote: 'I accidentally break my site while updating plugin. Full panic situation. Called them at 11pm and they solve it immediately. Best support.',
+    author: { name: 'Faisal Ahmed', role: 'Owner, Gadget Hub', location: 'Chittagong', img: '/images/testimonial/testimonial-4.webp' },
     gradient: 'from-purple-500 via-pink-400 to-transparent'
   },
   {
     id: 5,
     companyName: 'Quantum',
     companyIcon: <IoPrism />,
-    quote: 'We scaled our infrastructure by 300% without a single minute of downtime thanks to their roadmap.',
-    author: { name: 'David Kim', role: 'Director, Q-Labs', location: 'Seoul, KR', img: 'https://i.pravatar.cc/150?u=5' },
+    quote: 'Very helpful team. They build my website in just 7 days. Design is beautiful and mobile friendly. Thanks Odommo',
+    author: { name: 'Rakib Uddin', role: 'Owner, Easy Travel BD', location: 'Seoul, KR', img: '/images/testimonial/testimonial-7.webp' },
     gradient: 'from-indigo-500 via-violet-400 to-transparent'
   },
   {
     id: 6,
     companyName: 'Cyberdyne',
     companyIcon: <IoHardwareChip />,
-    quote: 'Absolute professionals. They did not just write code; they solved complex business problems.',
-    author: { name: 'Miles Dyson', role: 'CEO, Cyberdyne', location: 'Chicago, IL', img: 'https://i.pravatar.cc/150?u=6' },
+    quote: 'My previous website was looking 10 years old. Very bad impression. They make a new design for my business. Looks premium now. Mobile view also perfect.',
+    author: { name: 'Mohammad Rafiq', role: 'Manager, City Courier', location: 'Dhaka', img: '/images/testimonial/testimonial-6.webp' },
+    gradient: 'from-rose-500 via-red-400 to-transparent'
+  },
+  {
+    id: 7,
+    companyName: 'Cyberdyne',
+    companyIcon: <IoHardwareChip />,
+    quote: 'Quick response. Anytime I call they pick up. Fixed my website bugs very fast. Trusted people.',
+    author: { name: 'Ariful Islam', role: 'Sales Exec, Urban Properties', location: 'Khulna', img: '/images/testimonial/testimonial-8.webp' },
+    gradient: 'from-rose-500 via-red-400 to-transparent'
+  },
+  {
+    id: 8,
+    companyName: 'Cyberdyne',
+    companyIcon: <IoHardwareChip />,
+    quote: 'Professional behavior. They understand business needs. We are happy with their SEO service, our ranking is improving.',
+    author: { name: 'Mr. Anisul Haque', role: 'MD, Prime Logistics', location: 'Dhaka', img: '/images/testimonial/testimonial-5.webp' },
     gradient: 'from-rose-500 via-red-400 to-transparent'
   },
 ];
@@ -149,6 +165,9 @@ const TestimonialSection = () => {
               whileHover={{ y: -5, transition: { duration: 0.3 } }}
               className="group relative flex-shrink-0 w-[85vw] sm:w-[500px] snap-center flex flex-col justify-between overflow-hidden rounded-xl bg-white dark:bg-zinc-900 shadow-sm hover:shadow-xl transition-all duration-300 min-h-[320px]"
             >
+              {/* Gradient Background Effect on Hover */}
+              <div className={`absolute inset-0 bg-gradient-to-br ${item.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-500`}></div>
+
               {/* Gradient Border Line */}
               <div className={`absolute top-0 bottom-0 left-0 w-1.5 bg-gradient-to-b ${item.gradient}`}></div>
               
@@ -157,7 +176,7 @@ const TestimonialSection = () => {
                 {/* Header: Author & Company */}
                 <div className="flex items-start justify-between mb-8">
                   <div className="flex items-center gap-4">
-                     <div className="w-12 h-12 rounded-xl overflow-hidden bg-zinc-100 dark:bg-zinc-800">
+                     <div className="w-12 h-12 rounded-full overflow-hidden bg-zinc-100 dark:bg-zinc-800">
                         <img src={item.author.img} alt={item.author.name} className="w-full h-full object-cover" />
                      </div>
                      <div>

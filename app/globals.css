@@ -6,7 +6,7 @@
   --foreground: #1d1d1d;
 
   --primary: #248cfd; /* User's Blue */
-  --secondary: #e5e7eb; /* User's Gray */
+  --secondary: #f9fafc; /* User's Gray */
   --muted: #f8f8f8; /* User's Off-white */
 
   /* Vibrant Accents - Updated Blue */
@@ -27,7 +27,7 @@
   --foreground: #ffffff;
   
   --primary: #248cfd; /* User's Blue */
-  --secondary: #a1a1aa; /* Neutral 400 */
+  --secondary: #f9fafc; /* Neutral 400 */
   --muted: #27272a; /* Neutral 800 */
   
   /* Vibrant Accents */

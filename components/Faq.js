@@ -8,106 +8,186 @@ import SelectionLabel from './SelectionLabel'
 import RightArrow from './mycomponent/RightArrow'
 import UnderlineToBackground from './mycomponent/underline-to-background'
 
+const Highlight = ({ children, className = "" }) => (
+  <span className={`bg-zinc-100 dark:bg-zinc-800 px-1.5 py-0.5 rounded-md font-medium text-zinc-900 dark:text-zinc-100 border border-zinc-200 dark:border-zinc-700 ${className}`}>
+    {children}
+  </span>
+);
+
 const faqs = [
   {
     question: "How much does a website cost?",
     answer: (
-      <div className="space-y-4">
-        <p>Most business websites range from <strong>$2,500 to $8,000</strong> depending on features and complexity.</p>
-        <p>A simple 5-page site starts around $2,500. Need eCommerce or custom functionality? Expect $5,000-$8,000+.</p>
-        <p>Here's the real question: <em>How much is your current website costing you in lost customers?</em></p>
-        <Link href="/contact" className="inline-flex items-center gap-2 font-medium underline  transition-all pt-2 group">
-          Get your free estimate <span className="group-hover:translate-x-1 transition-transform">→</span>
-        </Link>
+      <div className="space-y-6">
+        <p>We believe in transparent pricing. For local Bangladeshi businesses, we have 3 clear packages:</p>
+        
+        <div className="space-y-4">
+          <div className="p-4 bg-zinc-50/50 dark:bg-zinc-800/20 rounded-lg border border-zinc-100 dark:border-zinc-800/50">
+            <h4 className="font-semibold text-lg mb-1">Startup / Portfolio <Highlight>15,000 - 25,000 BDT</Highlight></h4>
+            <p className="text-sm">A clean, one-page or 3-page site to establish credibility. Perfect for personal brands or small service providers.</p>
+          </div>
+
+          <div className="p-4 bg-zinc-50/50 dark:bg-zinc-800/20 rounded-lg border border-zinc-100 dark:border-zinc-800/50">
+            <h4 className="font-semibold text-lg mb-1">Business Standard <Highlight>30,000 - 50,000 BDT</Highlight></h4>
+            <p className="text-sm">The most popular choice. 5-10 pages, SEO-ready, dynamic design, and easy for you to edit.</p>
+          </div>
+
+          <div className="p-4 bg-zinc-50/50 dark:bg-zinc-800/20 rounded-lg border border-zinc-100 dark:border-zinc-800/50">
+            <h4 className="font-semibold text-lg mb-1">E-Commerce / Custom <Highlight>60,000 BDT+</Highlight></h4>
+            <p className="text-sm">Online store with payment gateway (Bkash/Nagad/Cards), inventory management, and custom features.</p>
+          </div>
+        </div>
+
+        <p className="text-sm italic text-zinc-500">Note: These are one-time development fees. Domain & Hosting renewal is separate (approx. 3k-5k BDT/year).</p>
+        
+        <div className="flex justify-end">
+          <Link href="/contact" className="inline-flex items-center gap-2 font-medium underline transition-all pt-2 group text-primary">
+            Get your free estimate <RightArrow/>
+          </Link>
+        </div>
       </div>
     )
   },
   {
     question: "How long does it take?",
     answer: (
-      <div className="space-y-4">
-        <ul className="list-disc list-inside space-y-1 ml-1">
-          <li><strong>Brand Identity:</strong> 2-3 weeks</li>
-          <li><strong>Website Design:</strong> 4-8 weeks</li>
-          <li><strong>Full Digital Package:</strong> 8-12 weeks</li>
+      <div className="space-y-6">
+        <p>We work fast without sacrificing quality.</p>
+        
+        <ul className="grid gap-3 sm:grid-cols-2">
+          <li className="p-3 bg-zinc-50 dark:bg-zinc-900/50 rounded-lg border border-zinc-100 dark:border-zinc-800">
+            <span className="block text-sm text-zinc-500">Simple Sites</span>
+            <Highlight>7 - 10 Days</Highlight>
+          </li>
+          <li className="p-3 bg-zinc-50 dark:bg-zinc-900/50 rounded-lg border border-zinc-100 dark:border-zinc-800">
+            <span className="block text-sm text-zinc-500">Business Sites</span>
+            <Highlight>15 - 20 Days</Highlight>
+          </li>
+          <li className="p-3 bg-zinc-50 dark:bg-zinc-900/50 rounded-lg border border-zinc-100 dark:border-zinc-800 sm:col-span-2">
+            <span className="block text-sm text-zinc-500">E-Commerce / Complex</span>
+            <Highlight>25 - 40 Days</Highlight>
+          </li>
         </ul>
-        <p>Timeline depends on your feedback speed and project scope. We'll give you exact dates on our kickoff call.</p>
-        <Link href="/contact" className="inline-flex items-center gap-2 font-medium underline  transition-all pt-2 group">
-          Book your strategy call <span className="group-hover:translate-x-1 transition-transform">→</span>
-        </Link>
+
+        <p>The timeline starts once you provide the necessary info. If you are fast, we are faster.</p>
+        
+        <div className="flex justify-end">
+          <Link href="/contact" className="inline-flex items-center gap-2 font-medium underline transition-all pt-2 group">
+            Get a custom quote in 10 minutes <RightArrow/>
+          </Link>
+        </div>
       </div>
     )
   },
+
   {
-    question: "Do I need a new website if I already have one?",
+    question: "Do I have to pay monthly?",
     answer: (
       <div className="space-y-4">
-        <p>Ask yourself:</p>
-        <ul className="list-disc list-inside space-y-1 ml-1">
-            <li>Is it mobile-friendly?</li>
-            <li>Does it load in under 3 seconds?</li>
-            <li>Does it look professional and trustworthy?</li>
-            <li>Are you getting leads from it?</li>
-        </ul>
-        <p>If you answered "no" to any of these, your site is costing you business.</p>
-        <Link href="/contact" className="inline-flex items-center gap-2 font-medium underline transition-all pt-2 group">
-          Get a free website audit <span className="group-hover:translate-x-1 transition-transform">→</span>
-        </Link>
+        <p>
+          <Highlight>No</Highlight>. The design and development fee is a <Highlight>one-time payment</Highlight>. 
+        </p>
+        <p>
+          However, every website needs a "home" (Hosting) and a "name" (Domain). These are renewed annually (yearly). We can manage this for you, or you can buy it yourself.
+        </p>
+        
+        <div className="flex justify-end">
+          <Link href="/contact" className="inline-flex items-center gap-2 font-medium underline transition-all pt-2 group">
+            See our annual maintenance packages <RightArrow/>
+          </Link>
+        </div>
       </div>
     )
   },
+
   {
-    question: "What if I don't have content ready?",
+    question: "What if I don't have images or writing ready?",
     answer: (
       <div className="space-y-4">
-        <p>No problem. Most clients don't.</p>
-        <p>We provide:</p>
-        <ul className="space-y-1 ml-1">
-            <li>✓ Professional copywriting</li>
-            <li>✓ Content strategy</li>
-            <li>✓ Logo design (if needed)</li>
-            <li>✓ Stock photo recommendations</li>
+        <p>This is the #1 reason projects get stuck, but we handle it. If you don't have content:</p>
+        
+        <ul className="space-y-3">
+          <li className="flex items-start gap-3">
+             <div className="mt-1.5 w-1.5 h-1.5 rounded-full bg-zinc-400 flex-shrink-0" />
+             <span>We can use high-quality <Highlight>premium stock images</Highlight>.</span>
+          </li>
+          <li className="flex items-start gap-3">
+             <div className="mt-1.5 w-1.5 h-1.5 rounded-full bg-zinc-400 flex-shrink-0" />
+             <span>We have in-house copywriters who can write professional <Highlight>English (or Bangla) text</Highlight> for your business.</span>
+          </li>
         </ul>
-        <p>Don't let missing content stop you from starting.</p>
-        <Link href="/contact" className="inline-flex items-center gap-2 font-medium underline transition-all pt-2 group">
-          Let's plan your project <span className="group-hover:translate-x-1 transition-transform">→</span>
-        </Link>
+        
+        <p className="text-sm italic text-zinc-500">Note: Content writing services may have a small additional fee based on volume.</p>
+        
+        <div className="flex justify-end">
+          <Link href="/contact" className="inline-flex items-center gap-2 font-medium underline transition-all pt-2 group">
+            Let's plan your project <RightArrow/>
+          </Link>
+        </div>
       </div>
     )
   },
+
   {
-    question: "Will my website show up on Google?",
+    question: "Will my website appear on Google?",
     answer: (
       <div className="space-y-4">
-        <p>Yes—every site we build is SEO-optimized: fast loading, mobile-responsive, clean code, and proper structure.</p>
-        <p>But ranking #1? That requires ongoing SEO and content marketing (which we also offer).</p>
-        <p>Think of it as: we build the foundation, you decide if you want to compete for top rankings.</p>
-        <Link href="/contact" className="inline-flex items-center gap-2 font-medium underline transition-all` pt-2 group">
-          Learn about SEO services <span className="group-hover:translate-x-1 transition-transform">→</span>
-        </Link>
+        <p>
+          <Highlight>Yes</Highlight>. We build every site with "On-Page SEO" best practices. This means Google can easily read and index your site.
+        </p>
+        
+        <div className="grid gap-3">
+          <div className="p-3 rounded-lg bg-zinc-50 dark:bg-zinc-900/50">
+             <span className="font-semibold block mb-1">Will you rank #1 immediately?</span>
+             <span className="text-zinc-600 dark:text-zinc-400">No. That requires a monthly SEO marketing service.</span>
+          </div>
+           <div className="p-3 rounded-lg bg-zinc-50 dark:bg-zinc-900/50">
+             <span className="font-semibold block mb-1">Will you appear for your business name?</span>
+             <span className="text-zinc-600 dark:text-zinc-400"><Highlight>Absolutely.</Highlight></span>
+          </div>
+        </div>
+
+           <div className="flex justify-end">
+             {/* No CTA link requested here originally but keeping consistent structure if needed, simply closing div */}
+           </div>
       </div>
     )
   },
+
   {
-    question: "What makes you different?",
+    question: "Why should I choose Odommo Digital over a cheap freelancer?",
     answer: (
-      <div className="space-y-4">
-        <p>Simple:</p>
-        <ul className="list-disc list-inside space-y-1 ml-1">
-            <li>We focus on results, not just pretty designs</li>
-            <li>You get direct access to your project team</li>
-            <li>We speak human, not tech jargon</li>
-            <li>Fast turnaround without cutting corners</li>
-            <li>We care about your growth, not just our portfolio</li>
-        </ul>
-        <p>We're not the cheapest—but we're the best investment.</p>
-        <Link href="/contact" className="inline-flex items-center gap-2 font-medium underline transition-all pt-2 group">
-          See what clients say <span className="group-hover:translate-x-1 transition-transform">→</span>
-        </Link>
+      <div className="space-y-6">
+        <p>You can find someone to build a site for 5,000 BDT. But you get what you pay for.</p>
+        
+        <div className="grid gap-3 sm:grid-cols-2">
+           <div className="p-4 bg-zinc-50 dark:bg-zinc-900/30 rounded-lg">
+              <h5 className="font-semibold mb-2 flex items-center gap-2">🛡️ Security</h5>
+              <p className="text-sm text-zinc-600 dark:text-zinc-400">Our sites don't get hacked easily.</p>
+           </div>
+           <div className="p-4 bg-zinc-50 dark:bg-zinc-900/30 rounded-lg">
+              <h5 className="font-semibold mb-2 flex items-center gap-2">🚀 Speed</h5>
+              <p className="text-sm text-zinc-600 dark:text-zinc-400">Premium servers, not slow shared hosting.</p>
+           </div>
+            <div className="p-4 bg-zinc-50 dark:bg-zinc-900/30 rounded-lg">
+              <h5 className="font-semibold mb-2 flex items-center gap-2">🤝 Support</h5>
+              <p className="text-sm text-zinc-600 dark:text-zinc-400">Registered agency. We don't disappear.</p>
+           </div>
+            <div className="p-4 bg-zinc-50 dark:bg-zinc-900/30 rounded-lg">
+              <h5 className="font-semibold mb-2 flex items-center gap-2">💰 Sales Focus</h5>
+              <p className="text-sm text-zinc-600 dark:text-zinc-400">We build sites that convert visitors.</p>
+           </div>
+        </div>
+
+        <div className="flex justify-end">
+          <Link href="/contact" className="inline-flex items-center gap-2 font-medium underline transition-all pt-2 group">
+            Book a Free Consultation (No pressure, just chat) <RightArrow/>
+          </Link>
+        </div>
       </div>
     )
   }
-]
+];
 
 
 export default function Faq() {

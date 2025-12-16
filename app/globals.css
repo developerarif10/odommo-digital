@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 :root {
   /* Light Mode Palette */
   --background: #ffffff;
@@ -21,7 +23,7 @@
   --font-sans: var(--font-geist-sans);
 }
 
-.dark {
+:root.dark {
   /* Premium Dark Mode Palette */
   --background: #000000; /* User's Dark */
   --foreground: #ffffff;

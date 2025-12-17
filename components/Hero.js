@@ -24,7 +24,7 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
             className="inline-flex items-center gap-2 px-4 text-sm font-medium mb-8"
-          ><SelectionLabel text="Is Your Business Getting Lost Online?" />
+          ><SelectionLabel text="Invisible Online?" />
           </motion.div>
 
           {/* Headline */}
@@ -34,8 +34,8 @@ export default function Hero() {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="text-5xl sm:text-5xl md:text-6xl lg:text-6xl font-bold tracking-tighter text-foreground mb-8 leading-[1.1]"
           >
-            You Deserve a Digital Presence That Drives <Highlight className="text-black dark:text-white">
-         Real Growth
+          Stop Losing Customers to Competitors Who Just <Highlight className="text-black dark:text-white">
+       Look Better
         </Highlight>
           </motion.h1>
 
@@ -46,9 +46,8 @@ export default function Hero() {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="text-sm md:text-lg text-muted-foreground mb-10 max-w-2xl mx-auto leading-relaxed"
           >
-           Whether you're launching a startup, scaling your business, or ready to stand out in a crowded market—you need more than just a website. You need a complete digital strategy that attracts customers, builds trust, and turns visitors into loyal clients.
-           <br/>
-Stop blending in. Start growing.
+  Without a strong online presence, you're losing leads to competitors who show up, stand out, and convert. We build high-converting websites and digital strategies that put your business front and center—so you can stop being overlooked and start growing. 
+          
           </motion.p>
 
           {/* Buttons */}
@@ -67,7 +66,7 @@ Stop blending in. Start growing.
               hoverBgColor=""
           icon={<RightArrow width={16} height={16} />}
             >
-              Get Your Free Strategy Call
+              Start Your Project
             </Button>
             <Button 
               href="/portfolio" 
@@ -77,6 +76,7 @@ Stop blending in. Start growing.
               borderColor="border-border hover:border-primary"
               slideHoverColor="bg-primary"
               hoverTextColor="hover:text-black dark:hover:text-white"
+              icon={<RightArrow width={16} height={16} />}
             >
               See Our Work
             </Button>

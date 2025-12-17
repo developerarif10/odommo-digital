@@ -2,6 +2,7 @@
 
 import { AnimatePresence, motion } from 'framer-motion'
 import { Plus } from 'lucide-react'
+import Image from 'next/image'
 import Link from 'next/link'
 import { useState } from 'react'
 import SelectionLabel from './SelectionLabel'
@@ -162,19 +163,19 @@ const faqs = [
         
         <div className="grid gap-3 sm:grid-cols-2">
            <div className="p-4 bg-zinc-50 dark:bg-zinc-900/30 rounded-lg">
-              <h5 className="font-semibold mb-2 flex items-center gap-2">🛡️ Security</h5>
+              <h5 className="font-semibold mb-2 flex items-center gap-2"><Image src="/green_tick.svg" alt="green tick" width={18} height={18} />  Security</h5>
               <p className="text-sm text-zinc-600 dark:text-zinc-400">Our sites don't get hacked easily.</p>
            </div>
            <div className="p-4 bg-zinc-50 dark:bg-zinc-900/30 rounded-lg">
-              <h5 className="font-semibold mb-2 flex items-center gap-2">🚀 Speed</h5>
+              <h5 className="font-semibold mb-2 flex items-center gap-2"><Image src="/green_tick.svg" alt="green tick" width={18} height={18} />  Speed</h5>
               <p className="text-sm text-zinc-600 dark:text-zinc-400">Premium servers, not slow shared hosting.</p>
            </div>
             <div className="p-4 bg-zinc-50 dark:bg-zinc-900/30 rounded-lg">
-              <h5 className="font-semibold mb-2 flex items-center gap-2">🤝 Support</h5>
+              <h5 className="font-semibold mb-2 flex items-center gap-2"><Image src="/green_tick.svg" alt="green tick" width={18} height={18} />  Support</h5>
               <p className="text-sm text-zinc-600 dark:text-zinc-400">Registered agency. We don't disappear.</p>
            </div>
             <div className="p-4 bg-zinc-50 dark:bg-zinc-900/30 rounded-lg">
-              <h5 className="font-semibold mb-2 flex items-center gap-2">💰 Sales Focus</h5>
+              <h5 className="font-semibold mb-2 flex items-center gap-2"><Image src="/green_tick.svg" alt="green tick" width={18} height={18} /> Sales Focus</h5>
               <p className="text-sm text-zinc-600 dark:text-zinc-400">We build sites that convert visitors.</p>
            </div>
         </div>

@@ -1,4 +1,5 @@
 "use client"
+import Image from 'next/image'
 import SelectionLabel from './SelectionLabel'
 import Button from './mycomponent/Button'
 import RightArrow from './mycomponent/RightArrow'
@@ -47,7 +48,7 @@ export default function HowWeHelp() {
             </div>
             <div>
               <p className="text-xl md:text-2xl font-medium leading-relaxed tracking-tight text-black dark:text-white">
-               A luxury skincare brand needed to stand out in a saturated market. Their outdated website was costing them sales, and their brand identity wasn't attracting their ideal premium customers.
+               A luxury beauty spa & salon brand needed to stand out in a saturated market. Their outdated website was costing them sales, and their brand identity wasn't attracting their ideal premium customers.
               </p>
             </div>
           </div>
@@ -55,13 +56,13 @@ export default function HowWeHelp() {
           {/* Card 2: Image / Project */}
           <div className="relative bg-zinc-900 rounded-xl overflow-hidden min-h-[400px] lg:min-h-[500px] group">
             <img 
-              src="/images/portfolio/work-1.webp" 
-              alt="Odommo Digital" 
+              src="/images/chandee.webp" 
+              alt="Chandee Digital" 
               className="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-700" 
             />
             <div className="absolute inset-0 bg-gradient-to-b from-black/0 via-black/20 to-black/60"></div>
             <div className="absolute inset-0 p-8 md:p-10 flex flex-col justify-between pt-10">
-               <h3 className="text-white text-2xl md:text-3xl font-medium text-center">Odommo Digital</h3>
+               <h3 className="text-white text-2xl md:text-3xl font-medium text-center">Chandee Beauty Spa & Salon</h3>
                <span className="text-white/80 text-sm font-medium text-center">2025</span>
             </div>
           </div>
@@ -75,12 +76,12 @@ export default function HowWeHelp() {
              </div>
              
              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-xl overflow-hidden bg-zinc-300">
-                  <img src="https://i.pravatar.cc/150?u=a042581f4e29026024d" alt="Sophia Reynolds" className="w-full h-full object-cover" />
+                <div className="w-12 h-12 rounded-full overflow-hidden bg-zinc-300">
+                  <Image src="/images/Dennis.webp" alt="Katai" width={100} height={100} className="w-full h-full object-cover" />
                 </div>
                 <div>
-                  <h4 className="text-base font-bold text-black dark:text-white">Sophia Reynolds</h4>
-                  <p className="text-sm text-zinc-500 dark:text-zinc-400">CEO of Odommo Digital</p>
+                  <h4 className="text-base font-bold text-black dark:text-white">Katai</h4>
+                  <p className="text-sm text-zinc-500 dark:text-zinc-400">Co-Founder of Chandee Beauty Spa</p>
                 </div>
              </div>
           </div>

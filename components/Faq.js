@@ -5,9 +5,10 @@ import { Plus } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useState } from 'react'
-import SelectionLabel from './SelectionLabel'
 import RightArrow from './mycomponent/RightArrow'
 import UnderlineToBackground from './mycomponent/underline-to-background'
+import Reveal from './Reveal'
+import SelectionLabel from './SelectionLabel'
 
 const Highlight = ({ children, className = "" }) => (
   <span className={`bg-zinc-100 dark:bg-zinc-800 px-1.5 py-0.5 rounded-md font-medium text-zinc-900 dark:text-zinc-100 border border-zinc-200 dark:border-zinc-700 ${className}`}>
@@ -210,6 +211,7 @@ export default function Faq() {
 
   return (
     <section className="py-6">
+      <Reveal>
       <div className="container mx-auto px-6 max-w-7xl">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24">
           
@@ -283,6 +285,7 @@ export default function Faq() {
           
         </div>
       </div>
+      </Reveal>
     </section>
   )
 }

@@ -1,9 +1,10 @@
 "use client"
 import { projects } from '@/lib/content'
 import { motion } from "framer-motion"
-import ProjectCard from './ProjectCard'
 import Button from './mycomponent/Button'
 import RightArrow from './mycomponent/RightArrow'
+import ProjectCard from './ProjectCard'
+import Reveal from './Reveal'
 
 export default function WorkSection() {
   // Ensure we have at least 4 projects, or duplicate if needed for the layout
@@ -25,6 +26,7 @@ export default function WorkSection() {
 
   return (
     <section id="work" className="py-12 md:py-24 container mx-auto px-6">
+    <Reveal>
      <div className="flex flex-col md:grid md:grid-cols-3 items-start md:items-center gap-3 md:gap-6 pb-6 md:pb-12">
           <h2 className="text-4xl md:text-6xl font-bold tracking-tighter leading-[0.9] justify-self-start">
             <span className="">Selected </span>
@@ -60,6 +62,7 @@ export default function WorkSection() {
           <ProjectCard key={`${project.slug}-${index}`} project={project} />
         ))}
       </div>
+      </Reveal>
     </section>
   )
 }

@@ -12,6 +12,7 @@ import {
   IoPlanet,
   IoPrism
 } from "react-icons/io5";
+import Reveal from './Reveal';
 import SelectionLabel from './SelectionLabel';
 
 const testimonials = [
@@ -118,7 +119,7 @@ const TestimonialSection = () => {
 
   return (
     <section ref={ref} className="relative w-full py-12">
-      
+      <Reveal>
       <div className="relative mx-auto max-w-7xl px-6 lg:px-8 z-10">
         
         {/* --- Header Section --- */}
@@ -210,6 +211,7 @@ const TestimonialSection = () => {
           ))}
         </motion.div>
       </div>
+      </Reveal>
     </section>
   );
 };

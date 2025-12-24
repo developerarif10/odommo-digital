@@ -1,12 +1,14 @@
 "use client"
 import Image from 'next/image'
-import SelectionLabel from './SelectionLabel'
 import Button from './mycomponent/Button'
 import RightArrow from './mycomponent/RightArrow'
+import Reveal from './Reveal'
+import SelectionLabel from './SelectionLabel'
 
 export default function HowWeHelp() {
   return (
     <section id="how-we-help" className="py-12 md:py-6">
+      <Reveal>
       <div className="container mx-auto px-6 max-w-7xl">
         
         {/* Header: Real Impact */}
@@ -123,6 +125,7 @@ export default function HowWeHelp() {
         </div>
 
       </div>
+      </Reveal>
     </section>
   )
 }

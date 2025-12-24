@@ -2,9 +2,10 @@
 import { AnimatePresence, motion } from 'framer-motion'
 import Link from 'next/link'
 import { useState } from 'react'
-import SelectionLabel from './SelectionLabel'
 import Button from './mycomponent/Button'
 import RightArrow from './mycomponent/RightArrow'
+import Reveal from './Reveal'
+import SelectionLabel from './SelectionLabel'
 
 const services = [
   {
@@ -85,6 +86,7 @@ export default function WhatWeDo() {
 
   return (
     <section id="what-we-do" className="transition-colors duration-300">
+      <Reveal>
       <div className="container mx-auto px-6 max-w-7xl">
         
 
@@ -233,6 +235,7 @@ export default function WhatWeDo() {
         </div>
 
       </div>
+      </Reveal>
     </section>
   )
 }
